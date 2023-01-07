@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with Metamask</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <section>
+
+        <h1>Connect Wallet</h1>
+        <button id="connect-button">Login</button>
+    
+    </section>
+    
+    
+    <script>
+
+        document.getElementById('connect-button').addEventListener('click', event => {
+        let account;
+        let button = event.target;
+        ethereum.request({method: 'eth_requestAccounts'}).then(accounts => {
+        account = accounts[0];
+        console.log(account);
+        button.textContent = account;
+
+        ethereum.request({method: 'eth_getBalance' , params: [account, 'latest']}).then(result => {
+            console.log(result);
+            let wei = parseInt(result,16); 
+            let balance = wei / (10**18);
+            console.log(balance + " ETH");
+            
+
+        })
+
+        });
+    });
+
+    </script>
+
+<!-- Notes: Once MetaMask is installed and running, you should find that new browser tabs have a window.ethereum 
+            object available in the developer console. This is how your website will interact with MetaMask. 
+-->
+
+
+</body>
+</html>

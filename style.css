@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+body {
+    background-color: rgb(87, 153, 240);
+    color: rgb(22, 22, 22);
+    font-family: 'Amatic SC', cursive;
+    font-size: 28px;
+    padding: 0;
+    margin: 0;
+}
+
+section {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    min-height: 100vh;
+}
+
+
+button {
+    background-image: url('./metamask.png');
+    font-family: 'Roboto thin';
+    font-size: 16px;
+    font-weight: 600;
+    width: fit-content;
+    height: 50px;
+    border-radius: 15px;
+    background-repeat: no-repeat;
+    padding-left: 60px;
+    padding-right: 20px;
+    border: none;
+    background-color: rgb(212, 206, 195);
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: rgb(241, 167, 55);
+    cursor: pointer;
+}
